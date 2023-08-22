@@ -22,7 +22,8 @@ import {
 } from "react-icons/fa";
 import { getAuth } from "firebase/auth";
 import Contact from "../components/Contact";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+// import { Link } from "react-router-dom";
+// import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 
 export default function Listing() {
   const auth = getAuth();
@@ -92,11 +93,11 @@ export default function Listing() {
             {listing.name} - ${" "}
             {listing.offer
               ? listing.discountedPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")
               : listing.regularPrice
-                  .toString()
-                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
             {listing.type === "rent" ? " / month" : ""}
           </p>
           <p className="flex items-center mt-6 mb-3 font-semibold">
@@ -150,7 +151,13 @@ export default function Listing() {
           )}
         </div>
         <div className="w-full h-[200px] md:h-[400px] z-10 overflow-x-hidden mt-6 md:mt-0 md:ml-2">
-          <MapContainer
+
+
+          <a href="https://goo.gl/maps/iaXnQ9cK5FtiJGyF9"><img src="https://www.google.com/maps/d/thumbnail?mid=1zGPJKJUKmNwkwKaOFlItglzDkcc" alt="img" /></a>
+
+
+
+          {/* <MapContainer
             center={[listing.geolocation.lat, listing.geolocation.lng]}
             zoom={13}
             scrollWheelZoom={false}
@@ -167,7 +174,7 @@ export default function Listing() {
                 {listing.address}
               </Popup>
             </Marker>
-          </MapContainer>
+          </MapContainer> */}
         </div>
       </div>
     </main>
